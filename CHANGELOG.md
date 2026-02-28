@@ -13,3 +13,12 @@
 - Aggregate by `title + createdAt`.
 - Preview top 10 aggregated posts.
 - Added docs for architecture, operations, troubleshooting, release, and handover.
+- Unified store target to `extension-unified/` single extension package.
+- Reduced `extension-unified` manifest scope for CWS review:
+- Removed unnecessary `activeTab` and `tabs` permissions.
+- Restricted content script match scope to `https://blog.stat.naver.com/*`.
+- Added extension icons (`16/48/128`) for store listing quality.
+- Added CWS documentation:
+- `docs/CWS_SUBMISSION.md`
+- `docs/PRIVACY.md`
+- Updated root/docs guides to `extension-unified` as primary release target.

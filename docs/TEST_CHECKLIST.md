@@ -1,31 +1,37 @@
 # Test Checklist
 
 ## Smoke Test
-- Load extension successfully.
-- Open `.../stat/rank_pv`.
-- Extract in default mode.
-- Verify preview shows max 20 rows.
-- Verify status text shows total rows.
+
+- 확장 로드 성공 (`extension-unified`).
+- `.../stat/rank_pv` 페이지 오픈.
+- 기본 모드가 `상위 글 집계`로 표시되는지 확인.
+- 모드 탭 전환(`상위 글 집계` <-> `원본 순위 추출`) 동작 확인.
+
+## Top Aggregation Mode
+
+- 집계 기간 `최근 7일` 실행.
+- Preview가 Top 10까지만 표시되는지 확인.
+- 상태 메시지에 `원본 n행 -> 글 n개` 포맷이 표시되는지 확인.
+- 집계 기간 `최근 14일`도 성공하는지 확인.
+
+## Raw Extraction Mode
+
+- `기간 추출 사용` OFF 상태로 1일 추출 확인.
+- `기간 추출 사용` ON 후 2일 추출 성공 확인.
+- 8일 이상 입력 시 검증 오류 메시지 확인.
+- Preview가 상위 20행까지만 표시되는지 확인.
 
 ## CSV / Copy
-- Download CSV and open in spreadsheet.
-- Use Copy and paste into spreadsheet.
-- Verify 6 columns:
-- 날짜, 순위, 제목, 조회수, 타입, 작성일
 
-## Pagination
-- Start from page 2 or later.
-- Run extract.
-- Confirm page 1 rows are included.
-- Confirm full pages are crawled once.
+- CSV 다운로드 후 스프레드시트 열기.
+- Copy 후 스프레드시트 붙여넣기.
+- 모드별 헤더 확인:
+- 상위 글 집계: `기간, 순위, 제목, 합계조회수, 타입, 작성일`
+- 원본 순위 추출: `날짜, 순위, 제목, 조회수, 타입, 작성일`
 
-## Range Mode
-- Enable range mode and set 2-day period.
-- Confirm merged output includes both dates.
-- Enable 7-day period and verify success.
-- Set 8-day period and verify validation error.
+## Pagination / Robustness
 
-## Robustness
-- Refresh extension and page, run extract again.
-- Validate duplicate rows are filtered.
-- Validate errors are shown in status if extraction fails.
+- 통계 화면을 2페이지 이상에서 시작 후 추출.
+- 결과에 1페이지 데이터가 포함되는지 확인.
+- 새로고침 후 재실행 시 중복 행 필터링이 동작하는지 확인.
+- 실패 시 상태 영역에 에러 메시지가 노출되는지 확인.

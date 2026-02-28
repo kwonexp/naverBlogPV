@@ -1,28 +1,29 @@
 # Features
 
 ## Completed Features
-- Extract table schema:
-- `날짜 / 순위 / 제목 / 조회수 / 타입 / 작성일`
-- Extract from Naver admin stats iframe (`blog.stat.naver.com`) automatically.
-- Auto-detect target table by header names.
-- Auto-crawl all pagination pages in one run.
-- Force reset to page 1 before crawling.
-- Download full result as UTF-8 BOM CSV.
-- Copy full result as TSV for spreadsheet paste.
-- Optional date-range extraction:
-- Toggle in popup.
-- Max range = 7 days.
-- Per-day full-page crawling and merged output.
-- Preview in popup:
-- Top 20 rows only.
-- Clear status text with total rows and guidance.
+
+- 단일 확장(`extension-unified`)에서 이중 모드 지원.
+- 모드 A: 원본 순위 추출.
+- 스키마: `날짜 / 순위 / 제목 / 조회수 / 타입 / 작성일`
+- 기간 추출: 최대 7일
+- 페이지네이션 자동 수집 + 시작 시 1페이지 리셋
+- 모드 B: 상위 글 집계.
+- 기간: 최근 7일 또는 14일
+- 집계 키: `제목 + 작성일`
+- 정렬: 합계 조회수 내림차순
+- 미리보기: Top 10
+- 출력: UTF-8 BOM CSV 다운로드 + TSV 클립보드 복사.
+- 진행률 바/상태 메시지 제공.
+- iframe 환경에서 최적 프레임 자동 선택.
 
 ## Current Limits
-- Designed for `순위 > 조회수 순위` page structure.
-- Date movement relies on visible date controls/text and can fail if UI structure changes significantly.
-- Range extraction is limited to 7 days by policy.
 
-## Planned/Optional Improvements
-- Add explicit progress updates from content script (`n/N days`).
-- Add cancel button for long extractions.
-- Add smarter table/date selector profiling for layout changes.
+- 타깃 페이지 구조(`순위 > 조회수 순위`) 변경 시 추출 실패 가능.
+- 날짜 이동은 화면의 날짜 입력/화살표 컨트롤 의존.
+- 원본 추출은 정책상 최대 7일.
+
+## Planned Improvements
+
+- 날짜별 진행률(`n/N`) 세분화.
+- 장시간 작업 취소 버튼.
+- 레이아웃 변경 감지 로직 강화.

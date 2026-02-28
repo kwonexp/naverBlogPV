@@ -1,4 +1,6 @@
-# Top Aggregation Extension (`extension-top`)
+# Top Aggregation Extension (`extension-top`, Legacy)
+
+> This document is for historical reference only. Current Chrome Web Store target is `extension-unified/`.
 
 ## Goal
 Collect recent ranking data from Naver Blog stats and aggregate by `제목 + 작성일` to find top posts by summed views.

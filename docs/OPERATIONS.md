@@ -1,25 +1,30 @@
 # Operations Notes
 
 ## Intended Use
-- Primary target page: `순위 > 조회수 순위` (`/stat/rank_pv`).
-- Use date range mode only when needed.
+
+- 대상 페이지: `순위 > 조회수 순위` (`/stat/rank_pv`).
+- 웹스토어 배포 대상: `extension-unified/`.
 
 ## Policy Constraints
-- Maximum date range is 7 days.
-- Extract always attempts to start from page 1 for completeness.
-- Output schema is fixed and stable.
+
+- 원본 추출 모드 기간: 최대 7일.
+- 상위 글 집계 모드 기간: 최근 7일 또는 14일.
+- 상위 글 집계의 종료일은 항상 어제(당일 통계 제외).
+- 추출은 완전성을 위해 1페이지부터 수집 시도.
 
 ## Performance Considerations
-- Total run time grows with:
-- Number of days.
-- Number of pages per day.
-- Keep other heavy tabs closed if browser is slow.
+
+- 실행 시간은 날짜 수와 일자별 페이지 수에 비례.
+- 브라우저가 느릴 때는 무거운 탭을 닫고 실행 권장.
 
 ## Data Semantics
-- `날짜`: selected stats date at top date control.
-- `작성일`: post creation date in table.
-- `조회수`: ranking table value for selected date context.
+
+- `날짜`: 통계 화면 상단의 기준 날짜.
+- `기간`: 집계 모드에서 사용한 시작일~종료일 구간.
+- `작성일`: 게시물 작성일.
+- `조회수/합계조회수`: 통계 테이블 값(또는 기간 합산값).
 
 ## Known Limitations
-- Major UI layout changes can break date/pagination element detection.
-- Clipboard behavior may vary by browser policy.
+
+- UI 대규모 변경 시 날짜/페이지 탐지 실패 가능.
+- 클립보드 API 동작은 브라우저 정책 영향 가능.

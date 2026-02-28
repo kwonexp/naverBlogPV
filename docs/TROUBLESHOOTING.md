@@ -1,37 +1,43 @@
 # Troubleshooting
 
 ## 1) "추출 가능한 테이블을 찾지 못했습니다."
-- Confirm page path is `.../stat/rank_pv`.
-- Refresh both:
-- Extension (`chrome://extensions` -> Reload).
-- Naver stats page tab.
-- Ensure you are logged in and table is visible.
+
+- 경로가 `.../stat/rank_pv`인지 확인.
+- 아래 두 항목 모두 새로고침:
+- 확장 (`chrome://extensions` -> Reload)
+- 네이버 통계 탭
+- 로그인 상태 + 테이블 노출 상태 확인.
 
 ## 2) "상단 기준 날짜를 찾지 못했습니다."
-- Ensure date selector text is visible near title/date controls.
-- Remove overlays/modals and retry.
-- Try page refresh and run extract again.
+
+- 날짜 선택/표시 텍스트가 화면에 보이는지 확인.
+- 오버레이/모달 제거 후 재시도.
+- 페이지 새로고침 후 다시 실행.
 
 ## 3) "1페이지로 이동하지 못했습니다."
-- Current pagination control did not respond.
-- Refresh page and retry.
-- Confirm pagination controls `< 1 2 >` are visible and clickable.
 
-## 4) Range extraction fails on specific day
-- Check selected range is within 7 days.
-- Confirm each target day is reachable via current UI controls.
-- Retry with smaller range (2-3 days) to isolate problematic date.
+- 페이지네이션 컨트롤이 반응하지 않은 상태.
+- 페이지 새로고침 후 재시도.
+- `< 1 2 >` 컨트롤이 보이고 클릭 가능한지 확인.
 
-## 5) Copy does not work
-- Some environments restrict clipboard API.
-- Use `Download CSV` as fallback.
-- Retry after clicking popup body once (focus issue).
+## 4) 기간 추출/집계가 특정 일자에서 실패
 
-## 6) Debugging checklist
-- Open `chrome://extensions`.
-- Open popup DevTools and inspect errors.
-- Capture:
-- Active URL.
-- Selected range values.
-- Popup error text.
-- Console error stack.
+- 원본 추출 모드는 최대 7일인지 확인.
+- 상위 글 집계 모드는 7일 또는 14일인지 확인.
+- 문제가 있는 구간을 2~3일 단위로 줄여 원인 구간 확인.
+
+## 5) Copy 동작 실패
+
+- 환경에 따라 클립보드 API가 제한될 수 있음.
+- `Download CSV`로 우회.
+- popup 본문 한 번 클릭 후 재시도(포커스 이슈).
+
+## 6) 디버깅 체크리스트
+
+- `chrome://extensions` 열기.
+- popup DevTools 에러 확인.
+- 아래 정보 캡처:
+- Active URL
+- 선택한 모드/기간
+- popup 에러 텍스트
+- Console stack
