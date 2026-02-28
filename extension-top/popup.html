@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Naver Top PV</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>조회수 상위 글 집계</h1>
+      <p class="sub">
+        최근 기간(7/14일)의 조회수 순위 데이터를 자동 수집한 뒤
+        <strong>제목 + 작성일</strong> 기준으로 합계 집계합니다.
+      </p>
+
+      <section class="options">
+        <div class="period-grid">
+          <label class="field">
+            <span>집계 기간</span>
+            <select id="periodDays">
+              <option value="7" selected>최근 7일</option>
+              <option value="14">최근 14일</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="extractBtn" class="primary">Extract</button>
+        <button id="downloadBtn" disabled>Download CSV</button>
+        <button id="copyBtn" disabled>Copy</button>
+      </section>
+
+      <p id="status" class="status">Ready.</p>
+
+      <section>
+        <h2>Preview (Top 10)</h2>
+        <div class="preview-wrap">
+          <table class="preview" id="previewTable">
+            <thead>
+              <tr>
+                <th>기간</th>
+                <th>순위</th>
+                <th>제목</th>
+                <th>합계조회수</th>
+                <th>타입</th>
+                <th>작성일</th>
+              </tr>
+            </thead>
+            <tbody id="previewBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

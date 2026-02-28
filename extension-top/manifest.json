@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Naver Blog Top PV Aggregator",
+  "version": "1.0.0",
+  "description": "Aggregate recent top-view posts from Naver Blog rank page by title and created date.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "downloads",
+    "webNavigation",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://blog.naver.com/*",
+    "https://admin.blog.naver.com/*",
+    "https://section.blog.naver.com/*",
+    "https://blog.stat.naver.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Top PV Aggregator"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://blog.naver.com/*",
+        "https://admin.blog.naver.com/*",
+        "https://section.blog.naver.com/*",
+        "https://blog.stat.naver.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
