@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Naver Rank Export</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>조회수 순위 추출</h1>
+      <p class="sub">
+        현재 화면의 <strong>순위 / 제목 / 조회수 / 타입 / 작성일</strong> 테이블을 그대로 추출합니다.
+      </p>
+
+      <section class="options">
+        <label class="check-row">
+          <input id="rangeEnabled" type="checkbox" />
+          <span>기간 추출 사용 (최대 7일)</span>
+        </label>
+        <div class="range-grid">
+          <label class="field">
+            <span>시작일</span>
+            <input id="startDate" type="date" disabled />
+          </label>
+          <label class="field">
+            <span>종료일</span>
+            <input id="endDate" type="date" disabled />
+          </label>
+        </div>
+      </section>
+
+      <section class="actions">
+        <button id="extractBtn" class="primary">Extract</button>
+        <button id="downloadBtn" disabled>Download CSV</button>
+        <button id="copyBtn" disabled>Copy</button>
+      </section>
+
+      <p id="status" class="status">Ready.</p>
+
+      <section>
+        <h2>Preview (상위 20행)</h2>
+        <div class="preview-wrap">
+          <table class="preview" id="previewTable">
+            <thead>
+              <tr>
+                <th>날짜</th>
+                <th>순위</th>
+                <th>제목</th>
+                <th>조회수</th>
+                <th>타입</th>
+                <th>작성일</th>
+              </tr>
+            </thead>
+            <tbody id="previewBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
