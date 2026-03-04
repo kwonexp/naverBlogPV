@@ -51,3 +51,8 @@ zip -r naver-rank-toolkit-unified.zip extension-unified -x "*/.DS_Store"
 - `docs/TEST_CHECKLIST.md` 완료
 - 아이콘(16/48/128) 포함 확인
 - 스토어 스크린샷/설명 최신화
+
+## Store Screenshots
+
+- `screenshot20260304.png` (918x658)
+- `screenshot20260304_640x400.png` (640x400)
